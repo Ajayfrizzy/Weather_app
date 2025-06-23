@@ -1,5 +1,5 @@
 // API Configuration
-const API_KEY = "95c1752da90f2fd186a13aa242dad553";
+const API_KEY = "54deb98e3db1102b213c29a3a39fa60a";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 const ICON_URL = "https://openweathermap.org/img/wn/";
 
