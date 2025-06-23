@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Weather App</h1>
+            <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white">
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <!-- Icon path will be inserted by JavaScript -->
+                </svg>
+            </button>
+        </div>
+
+        <div class="max-w-md mx-auto mb-8">
+            <div class="flex">
+                <input type="text" id="city-input" placeholder="Enter city name" 
+                    class="flex-grow px-4 py-2 rounded-l-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button id="search-btn" class="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 transition-colors">
+                    Search
+                </button>
+            </div>
+            <button id="location-btn" class="mt-2 w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                </svg>
+                Use My Location
+            </button>
+        </div>
+
+        <div id="error-message" class="hidden max-w-md mx-auto mb-8 p-4 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg"></div>
+
+        <div id="loading" class="hidden flex justify-center items-center py-12">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
+
+        <div id="current-weather" class="hidden max-w-md mx-auto mb-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 id="city-name" class="text-2xl font-bold text-gray-800 dark:text-white"></h2>
+                    <span id="country-code" class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-sm"></span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div id="weather-icon" class="w-16 h-16"></div>
+                        <div>
+                            <p id="weather-description" class="text-gray-600 dark:text-gray-300 capitalize"></p>
+                            <p id="temperature" class="text-4xl font-bold text-gray-800 dark:text-white"></p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-gray-600 dark:text-gray-300">Humidity: <span id="humidity" class="font-semibold text-gray-800 dark:text-white"></span></p>
+                        <p class="text-gray-600 dark:text-gray-300">Wind: <span id="wind-speed" class="font-semibold text-gray-800 dark:text-white"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-4">5-Day Forecast</h2>
+        <div id="forecast" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
